@@ -58,6 +58,13 @@ class ActsAsLocalizedTest < MiniTest::Test
     assert_equal 'content EN', model.attr
     I18n.locale = :fr
     assert_equal 'content FR', model.attr
+
+    begin
+      I18n.locale = :invalid
+      model.attr
+    rescue => e
+      assert e.is_a?(NoMethodError)
+    end
   end
 
 end
