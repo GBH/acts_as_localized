@@ -1,4 +1,5 @@
 # ActsAsLocalized
+[![Gem Version](https://img.shields.io/gem/v/acts_as_localized.svg?style=flat)](http://rubygems.org/gems/acts_as_localized) [![Gem Downloads](https://img.shields.io/gem/dt/acts_as_localized.svg?style=flat)](http://rubygems.org/gems/acts_as_localized) [![Build Status](https://img.shields.io/travis/GBH/acts_as_localized.svg?style=flat)](https://travis-ci.org/GBH/acts_as_localized)
 
 ActsAsLocalized extends ActiveRecord to add localization mechanism for model attributes.
 
