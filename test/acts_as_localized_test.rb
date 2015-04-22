@@ -50,7 +50,7 @@ class ActsAsLocalizedTest < MiniTest::Test
     teardown_db
   end
 
-  def test_localization
+  def test_reader
     model = TestModel.create!(
       :attr_en  => 'content EN',
       :attr_fr  => 'content FR'
@@ -62,6 +62,26 @@ class ActsAsLocalizedTest < MiniTest::Test
     begin
       I18n.locale = :invalid
       model.attr
+    rescue => e
+      assert e.is_a?(NoMethodError)
+    end
+  end
+
+  def test_writer
+    model = TestModel.create!(
+      :attr => 'content EN'
+    )
+    assert_equal 'content EN',  model.attr
+    assert_equal 'content EN',  model.attr_en
+    assert_equal nil,           model.attr_fr
+
+    I18n.locale = :fr
+    model.update_attribute(:attr, 'content FR')
+    assert_equal 'content FR', model.attr_fr
+
+    begin
+      I18n.locale = :invalid
+      model.attr = 'invalid'
     rescue => e
       assert e.is_a?(NoMethodError)
     end
