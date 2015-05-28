@@ -25,9 +25,12 @@ picture = Picture.create!(
 )
 
 I18n.locale = :en
-picture.title # => Title EN
+picture.title #=> Title EN
+picture.title = 'Updated Title EN' # same as `picture.title_en=`
+
 I18n.locale = :fr
 picture.title # => Title FR
+picture.title = 'Updated Title EN' # same as `picture.title_fr=`
 ```
 
 ---
