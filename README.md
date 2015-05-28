@@ -30,7 +30,7 @@ picture.title = 'Updated Title EN' # same as `picture.title_en=`
 
 I18n.locale = :fr
 picture.title # => Title FR
-picture.title = 'Updated Title EN' # same as `picture.title_fr=`
+picture.title = 'Updated Title FR' # same as `picture.title_fr=`
 ```
 
 ---
